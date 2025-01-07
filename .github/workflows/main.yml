@@ -3,7 +3,7 @@ name: PR Workflow and Deploy
 on:
   pull_request:
     branches:
-      - devlop-2
+      - devlop
     types:
       - opened
       - synchronize
@@ -11,7 +11,7 @@ on:
 
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   test:
@@ -48,7 +48,7 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }}/ --delete
+          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }}/ 
 
       - name: Verify files in S3
-        run: aws s3 ls s3://${{ secrets.S3_BUCKET_NAME }}/ --recursive  
+        run: aws s3 ls s3://${{ secrets.S3_BUCKET_NAME }}/   
