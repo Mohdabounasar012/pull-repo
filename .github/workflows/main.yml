@@ -47,7 +47,7 @@ jobs:
 
       - name: Sync files to S3
         run: |
-          aws s3 sync ./ s3://${{ secrets.pull-s3-bucket }}/ --delete
+          aws s3 sync ./ s3://${{ secrets.S3_BUCKET_NAME }}/ --delete
 
       - name: Verify files in S3
-        run: aws s3 ls s3://${{ secrets.pull-s3-bucket }}/ --recursive  
+        run: aws s3 ls s3://${{ secrets.S3_BUCKET_NAME }}/ --recursive  
