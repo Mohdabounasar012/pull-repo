@@ -3,7 +3,7 @@ name: PR Workflow and Deploy
 on:
   pull_request:
     branches:
-      - main
+      - devlop
     types:
       - opened
       - synchronize
